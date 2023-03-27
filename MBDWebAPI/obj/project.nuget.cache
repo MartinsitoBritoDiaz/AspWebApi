@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "HHLogpXmAW6Mp/hNC77GbFuC6fjMz73GVkNQTpWMaE1u+uH84LP8x8I8oH6vksED2XDeAy4kd2thSIYIhq0bgA==",
+  "dgSpecHash": "jHqaxO+1mrvReatDmKa7v75fALvOtcHcgp5QR2edw2tQ3YeXHYGVSoBTizxwjtV3SKRso3AmlmjekBZE1jY6QA==",
   "success": true,
   "projectFilePath": "C:\\Users\\martinsito\\source\\repos\\MBDWebAPI\\MBDWebAPI\\MBDWebAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\martinsito\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\martinsito\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.4\\microsoft.aspnetcore.openapi.7.0.4.nupkg.sha512",
     "C:\\Users\\martinsito\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\martinsito\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",

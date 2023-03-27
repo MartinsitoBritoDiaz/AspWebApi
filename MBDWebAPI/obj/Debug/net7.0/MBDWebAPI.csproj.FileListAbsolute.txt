@@ -31,3 +31,4 @@ C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\obj\Debug\net7.0\refint\MBD
 C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\obj\Debug\net7.0\MBDWebAPI.pdb
 C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\obj\Debug\net7.0\MBDWebAPI.genruntimeconfig.cache
 C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\obj\Debug\net7.0\ref\MBDWebAPI.dll
+C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\bin\Debug\net7.0\BCrypt.Net-Next.dll
