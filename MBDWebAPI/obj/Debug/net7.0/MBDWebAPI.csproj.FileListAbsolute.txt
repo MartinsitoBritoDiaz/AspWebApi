@@ -32,3 +32,15 @@ C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\obj\Debug\net7.0\MBDWebAPI.
 C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\obj\Debug\net7.0\MBDWebAPI.genruntimeconfig.cache
 C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\obj\Debug\net7.0\ref\MBDWebAPI.dll
 C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\bin\Debug\net7.0\BCrypt.Net-Next.dll
+C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\bin\Debug\net7.0\Scrutor.dll
+C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
