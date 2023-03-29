@@ -1,4 +1,6 @@
 ﻿using MBDWebAPI.Modals;
+using MBDWebAPI.Services.UserService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -13,9 +15,17 @@ namespace MBDWebAPI.Controllers
     {
         public static User user = new User();
         public readonly IConfiguration _configuration;
-        public AuthController(IConfiguration configuration)
+        public readonly IUserService _userService;
+        public AuthController(IConfiguration configuration, IUserService userService)
         {
             _configuration = configuration;
+            _userService = userService;
+        }
+
+        [HttpGet, Authorize]
+        public ActionResult<string> GetUserName()
+        {
+            return Ok( _userService.GetUserName() );
         }
 
         [HttpPost("register")]
@@ -50,16 +60,21 @@ namespace MBDWebAPI.Controllers
 
         private string CreateToken(User user)
         {
+            //Create the claims with the roles
             List<Claim> claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(ClaimTypes.Role, "Admin"),
+                new Claim(ClaimTypes.Role, "User"),
             };
 
+            //Encode the information with the secret string
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
                 _configuration.GetSection("AppSettings:Token").Value!));
 
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
+            //Set the claims, expire date and the cre dentials to the token
             var token = new JwtSecurityToken(
                 claims: claims,
                 expires: DateTime.Now.AddDays(1),
