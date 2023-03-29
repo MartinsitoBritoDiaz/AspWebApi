@@ -1,8 +1,12 @@
 using MBDWebAPI.Services.UserService;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using System.Text;
+using Web_API.Data.Context;
+using Web_API.Repositories.StudentRepository;
+using Web_API.Services.StudentService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +17,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+builder.Services.AddScoped<IStudentService, StudentService>();
 
 
 builder.Services.AddSwaggerGen( option =>
@@ -38,6 +44,10 @@ builder.Services.AddAuthentication().AddJwtBearer(
                 builder.Configuration.GetSection("AppSettings:Token").Value!))
         };
     });
+
+builder.Services.AddDbContext<Context>(option =>
+    option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
 
 var app = builder.Build();
 
