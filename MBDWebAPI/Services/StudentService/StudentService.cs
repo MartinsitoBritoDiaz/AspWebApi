@@ -26,9 +26,16 @@ namespace Web_API.Services.StudentService
             }
         }
 
-        public Task<Student> GetStudentById(int id)
+        public async Task<Student> GetStudentById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _studentRepository.GetById(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public async Task<List<Student>> GetStudents()

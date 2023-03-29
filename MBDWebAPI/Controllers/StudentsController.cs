@@ -17,7 +17,7 @@ namespace Web_API.Controllers
         }
 
         // GET: api/<StudentController>
-        [HttpGet, Authorize(Roles = "Admin")]
+        [HttpGet]
         public async Task<ActionResult<List<Student>>> Get()
         {
             try
@@ -41,6 +41,22 @@ namespace Web_API.Controllers
                 await _studentService.CreateStudent(student);
 
                 return Ok();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        // Get By Id api/<StudentController>
+        [HttpGet("{id}")]
+        public async Task<ActionResult<bool>> GetById(int id)
+        {
+            try
+            {
+                var result = await _studentService.GetStudentById(id);
+
+                return Ok(result);
             }
             catch (Exception)
             {

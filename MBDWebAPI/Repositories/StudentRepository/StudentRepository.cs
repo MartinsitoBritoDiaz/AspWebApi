@@ -1,16 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Web_API.Data.Context;
 using Web_API.Modals;
+using Web_API.Repositories.PatternRepository;
 
 namespace Web_API.Repositories.StudentRepository
 {
     public class StudentRepository : IStudentRepository
     {
         private readonly Context _context;
+        private Repository<Student> _repository;
 
         public StudentRepository(Context context)
         {
             _context = context;
+            _repository = new Repository<Student>(context);
         }
         public async Task<bool> Create(Student student)
         {
@@ -34,7 +37,7 @@ namespace Web_API.Repositories.StudentRepository
         {
             try
             {
-                return await _context.Student.ToListAsync();
+                return await _repository.GetAll();
             }
             catch (Exception)
             {
@@ -42,9 +45,16 @@ namespace Web_API.Repositories.StudentRepository
             }
         }
 
-        public Task<Student> GetById(int id)
+        public async Task<Student> GetById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _repository.GetById(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
