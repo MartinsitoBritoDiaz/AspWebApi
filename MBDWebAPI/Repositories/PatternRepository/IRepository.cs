@@ -23,7 +23,7 @@ namespace Web_API.Repositories.PatternRepository
         /// <param name="entity"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<bool> Update(T entity, int id);
+        Task<T> Update(T entity, int id);
 
         /// <summary>
         /// This method is a database create operation that takes an integer ID parameter and returns a Task of a boolean value indicating whether the operation was successful.

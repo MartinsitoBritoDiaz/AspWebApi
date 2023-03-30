@@ -18,7 +18,19 @@ namespace Web_API.Services.StudentService
                 if (student == null)
                     throw new Exception("Student couldn't be saved");
 
-                return await _studentRepository.Create(student);
+                return await _studentRepository.CreateStudent(student);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<bool> DeleteStudentById(int id)
+        {
+            try
+            {
+                return await _studentRepository.DeleteStudentById(id);
             }
             catch (Exception)
             {
@@ -30,7 +42,7 @@ namespace Web_API.Services.StudentService
         {
             try
             {
-                return await _studentRepository.GetById(id);
+                return await _studentRepository.GetStudentById(id);
             }
             catch (Exception)
             {
@@ -42,7 +54,22 @@ namespace Web_API.Services.StudentService
         {
             try
             {
-                return await _studentRepository.GetAll();
+                return await _studentRepository.GetStudents();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<Student> UpdateStudent(Student student)
+        {
+            try
+            {
+                if (student == null)
+                    throw new Exception("Student couldn't be updated");
+
+                return await _studentRepository.UpdateStudent(student);
             }
             catch (Exception)
             {

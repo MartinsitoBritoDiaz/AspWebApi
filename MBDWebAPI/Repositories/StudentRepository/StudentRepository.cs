@@ -15,7 +15,7 @@ namespace Web_API.Repositories.StudentRepository
             _context = context;
             _repository = new Repository<Student>(context);
         }
-        public async Task<bool> Create(Student student)
+        public async Task<bool> CreateStudent(Student student)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace Web_API.Repositories.StudentRepository
             }
         }
 
-        public async Task<List<Student>> GetAll()
+        public async Task<List<Student>> GetStudents()
         {
             try
             {
@@ -45,11 +45,35 @@ namespace Web_API.Repositories.StudentRepository
             }
         }
 
-        public async Task<Student> GetById(int id)
+        public async Task<Student> GetStudentById(int id)
         {
             try
             {
                 return await _repository.GetById(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<Student> UpdateStudent(Student student)
+        {
+            try
+            {
+                return await _repository.Update(student, student.Id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<bool> DeleteStudentById(int id)
+        {
+            try
+            {
+                return await _repository.Delete(id);
             }
             catch (Exception)
             {

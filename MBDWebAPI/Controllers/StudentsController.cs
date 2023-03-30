@@ -63,5 +63,37 @@ namespace Web_API.Controllers
                 throw;
             }
         }
+
+        // Update api/<StudentController>
+        [HttpPut]
+        public async Task<ActionResult<Student>> Update(Student student)
+        {
+            try
+            {
+                var result = await _studentService.UpdateStudent(student);
+
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        // Delete api/<StudentController>
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<bool>> Delete(int id)
+        {
+            try
+            {
+                await _studentService.DeleteStudentById(id);
+
+                return Ok();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

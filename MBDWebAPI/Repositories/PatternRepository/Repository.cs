@@ -83,7 +83,7 @@ namespace Web_API.Repositories.PatternRepository
             }
         }
 
-        public async Task<bool> Update(T entity, int id)
+        public async Task<T> Update(T entity, int id)
         {
             try
             {
@@ -100,12 +100,13 @@ namespace Web_API.Repositories.PatternRepository
                 if (!isSaved)
                     throw new Exception("Employee couldn't be updated");
 
-                return isSaved;
+                return entity;
             }
             catch (Exception)
             {
                 throw;
             }
         }
+
     }
 }
