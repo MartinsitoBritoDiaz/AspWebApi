@@ -1,4 +1,4 @@
-﻿namespace MBDWebAPI.Modals
+﻿namespace Web_API.Modals
 {
     public class UserRequestDTO
     {

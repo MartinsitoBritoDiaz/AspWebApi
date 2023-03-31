@@ -1,11 +1,11 @@
-﻿using MBDWebAPI.Modals;
-using MBDWebAPI.Services.UserService;
+﻿using Web_API.Services.UserService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Web_API.Modals;
 
 namespace MBDWebAPI.Controllers
 {
@@ -26,18 +26,6 @@ namespace MBDWebAPI.Controllers
         public ActionResult<string> GetUserName()
         {
             return Ok( _userService.GetUserName() );
-        }
-
-        [HttpPost("register")]
-        public ActionResult<User> Register(UserRequestDTO request)
-        {
-            string passwordHash
-                = BCrypt.Net.BCrypt.HashPassword(request.Password);
-
-            user.UserName= request.UserName;
-            user.Password = passwordHash;
-
-            return Ok(user);    
         }
 
         [HttpPost("login")]

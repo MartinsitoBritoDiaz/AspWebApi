@@ -6,7 +6,9 @@ using Swashbuckle.AspNetCore.Filters;
 using System.Text;
 using Web_API.Data.Context;
 using Web_API.Repositories.StudentRepository;
+using Web_API.Repositories.UserRepository;
 using Web_API.Services.StudentService;
+using Web_API.Services.UserService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<IStudentService, StudentService>();
@@ -48,6 +51,12 @@ builder.Services.AddAuthentication().AddJwtBearer(
 builder.Services.AddDbContext<Context>(option =>
     option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
+
+builder.Services.AddSwaggerGen(c =>
+{
+    c.EnableAnnotations();
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+});
 
 var app = builder.Build();
 

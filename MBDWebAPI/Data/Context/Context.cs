@@ -10,5 +10,6 @@ namespace Web_API.Data.Context
         }
 
         public DbSet<Student> Student { get; set; }
+        public DbSet<User> User { get; set; }
     }
 }
