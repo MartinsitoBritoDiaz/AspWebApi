@@ -79,3 +79,6 @@ C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\obj\Debug\net7.0\refint\Web
 C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\obj\Debug\net7.0\Web_API.pdb
 C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\obj\Debug\net7.0\Web_API.genruntimeconfig.cache
 C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\obj\Debug\net7.0\ref\Web_API.dll
+C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\bin\Debug\net7.0\Web_API.xml
+C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\bin\Debug\net7.0\Swashbuckle.AspNetCore.Annotations.dll
+C:\Users\martinsito\source\repos\MBDWebAPI\MBDWebAPI\obj\Debug\net7.0\Web_API.xml
