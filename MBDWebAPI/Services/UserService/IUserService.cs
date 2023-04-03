@@ -6,9 +6,10 @@ namespace Web_API.Services.UserService
     {
         string GetUserName();
         Task<List<User>> GetUsers();
-        Task<UserRequestDTO> GetUserById(int id);
-        Task<bool> CreateUser(UserRequestDTO user);
-        Task<UserRequestDTO> UpdateUser(UserRequestDTO user);
+        Task<User> GetUserById(int id);
+        Task<bool> CreateUser(User user);
+        Task<User> UpdateUser(User user);
         Task<bool> DeleteUserById(int id);
+        Task<string> Login(UserDTO user);
     }
 }

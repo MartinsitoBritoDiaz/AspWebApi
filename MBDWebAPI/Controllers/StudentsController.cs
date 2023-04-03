@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using Web_API.Modals;
 using Web_API.Services.StudentService;
 
@@ -17,6 +18,7 @@ namespace Web_API.Controllers
         }
 
         // GET: api/<StudentController>
+        [SwaggerOperation(Summary = "Get all students")]
         [HttpGet]
         public async Task<ActionResult<List<Student>>> Get()
         {
@@ -33,7 +35,8 @@ namespace Web_API.Controllers
         }
 
         // POST api/<StudentController>
-        [HttpPost]
+        [SwaggerOperation(Summary = "Create a new student")]
+        [HttpPost, Authorize]
         public async Task<ActionResult<bool>> Post([FromBody] Student student)
         {
             try
@@ -49,6 +52,7 @@ namespace Web_API.Controllers
         }
 
         // Get By Id api/<StudentController>
+        [SwaggerOperation(Summary = "Get student by id")]
         [HttpGet("{id}")]
         public async Task<ActionResult<bool>> GetById(int id)
         {
@@ -65,7 +69,8 @@ namespace Web_API.Controllers
         }
 
         // Update api/<StudentController>
-        [HttpPut]
+        [SwaggerOperation(Summary = "Update a student ")]
+        [HttpPut, Authorize]
         public async Task<ActionResult<Student>> Update(Student student)
         {
             try
@@ -81,7 +86,8 @@ namespace Web_API.Controllers
         }
 
         // Delete api/<StudentController>
-        [HttpDelete("{id}")]
+        [SwaggerOperation(Summary = "Delete a student")]
+        [HttpDelete("{id}"), Authorize]
         public async Task<ActionResult<bool>> Delete(int id)
         {
             try

@@ -7,12 +7,5 @@
         public string Roles { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
 
-        public static User operator +(User user, UserRequestDTO userRequest)
-        {
-            user.UserName = userRequest.UserName;
-            user.Password = userRequest.Password;
-            user.Roles = "User";
-            return user;
-        }
     }
 }

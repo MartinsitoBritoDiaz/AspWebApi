@@ -18,7 +18,7 @@ namespace MBDWebAPI.Services.UserService
             _userRepository = userRepository;
         }
 
-        public async Task<bool> CreateUser(UserRequestDTO user)
+        public async Task<bool> CreateUser(User user)
         {
             try
             {
@@ -29,9 +29,7 @@ namespace MBDWebAPI.Services.UserService
 
                 user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
 
-                var userToDb = userDB + user;
-
-                return await _userRepository.CreateUser(userToDb);
+                return await _userRepository.CreateUser(user);
             }
             catch (Exception)
             {
@@ -39,14 +37,28 @@ namespace MBDWebAPI.Services.UserService
             }
         }
 
-        public Task<bool> DeleteUserById(int id)
+        public async Task<bool> DeleteUserById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _userRepository.DeleteUserById(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        public Task<UserRequestDTO> GetUserById(int id)
+        public async Task<User> GetUserById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _userRepository.GetUserById(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public string GetUserName()
@@ -68,17 +80,45 @@ namespace MBDWebAPI.Services.UserService
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        public async Task<string> Login(UserDTO user)
+        {
+            try
+            {
+                string result = "sd";
+
+                return result;
+            }
+            catch (Exception)
+            {
 
                 throw;
             }
         }
 
-        public Task<UserRequestDTO> UpdateUser(UserRequestDTO user)
+        public async Task<User> UpdateUser(User user)
         {
-            throw new NotImplementedException();
+            try
+            {
+                User userDB = new User();
+
+                if (!verifyFields(user))
+                    throw new Exception("User couldn't be saved");
+
+                user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
+
+                return await _userRepository.UpdateUser(user);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        private bool verifyFields(UserRequestDTO user)
+        private bool verifyFields(User user)
         {
             bool verified = true;
 

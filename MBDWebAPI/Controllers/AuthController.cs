@@ -6,6 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Web_API.Modals;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace MBDWebAPI.Controllers
 {
@@ -22,14 +23,16 @@ namespace MBDWebAPI.Controllers
             _userService = userService;
         }
 
+        [SwaggerOperation(Summary = "Get name from logged user")]
         [HttpGet, Authorize]
         public ActionResult<string> GetUserName()
         {
             return Ok( _userService.GetUserName() );
         }
 
+        [SwaggerOperation(Summary = "Login Auth Service")]
         [HttpPost("login")]
-        public ActionResult<User> Login(UserRequestDTO request)
+        public ActionResult<User> Login(UserDTO request)
         {
             if(user.UserName!= request.UserName)
             {
@@ -40,6 +43,21 @@ namespace MBDWebAPI.Controllers
             {
                 return BadRequest("Wrong passwrod");
             }
+
+            var token = CreateToken(user);
+
+            return Ok(token);
+        }
+
+        [SwaggerOperation(Summary = "Register Auth Service")]
+        [HttpPost("register")]
+        public ActionResult<User> Register(UserDTO request)
+        {
+            string passwordHash
+                = BCrypt.Net.BCrypt.HashPassword(request.Password);
+
+            user.UserName = request.UserName;
+            user.Password = passwordHash;
 
             var token = CreateToken(user);
 

@@ -1,4 +1,10 @@
-﻿using Web_API.Data.Context;
+﻿using Azure.Core;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Web_API.Data.Context;
 using Web_API.Modals;
 using Web_API.Repositories.PatternRepository;
 
@@ -6,6 +12,7 @@ namespace Web_API.Repositories.UserRepository
 {
     public class UserRepository : IUserRepository
     {
+
         private readonly Context _context;
         private Repository<User> _repository;
 
